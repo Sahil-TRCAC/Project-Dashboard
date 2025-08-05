@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 320px;
+        height: 450px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+
+
+    
+    button{
+        height: 40px;
+        width: 60%;
+        background-color: rgb(35, 35, 194);
+        border-radius: 40px;
+        margin-top: 13%;
+        font-size: 15px;
+        color: aliceblue;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+    }
+    .cont2{
+        height: 200px;
+        width: 380px;
+       font-size: 20px;
+       text-align: center;
+        margin-top: 20px;
+        border-radius: 20px;
+        margin-left: -30px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .prefix{
+        
+        position: relative;
+        left: 30px;
+        top: 20%;
+        transform: translateY(-50%);
+        font-size: 18px;
+    }
+
+    .prefix1{
+         position: relative;
+         top: 30px;
+         left: 25px;
+        
+    
+        transform: translateY(-50%);
+        font-size: 18px;
+
+    }
+    
+
+</style>
+<body bgcolor="blue">
+    <div class="container">
+        <div class="p">
+        <center>
+            <h2><span>📋</span> Income Calculator</h2>
+        </center>
+    </div>
+    
+    <div class="inp">
+        
+        <div class="inp1">
+            <p>Hourly Rate:</p>
+            <center>
+                <span class="prefix">$</span> 
+                 <input type="number" name="" id="hour">
+            </div>
+        </center>
+    </div>
+    <div class="inp2">
+        <p>Hours Worked Per Day:</p>
+        
+        <span class="prefix1">⏱️</span>
+        <center>
+            <input type="number" name="" id="day">
+        </center>
+    </div>
+<center>
+
+    <div class="but1">
+        <button class="calculate-btn" onclick="calculateincome()">📟 Calculate</button>
+    </div>
+</center>
+    <div class="cont2" id="display">
+
+
+    </div>
+
+
+
+    </div>
+</body>
+<script>
+    function calculateincome() {
+
+        let dailyworked = parseInt(document.getElementById("day").value);
+         let wage = parseInt(document.getElementById("hour").value);
+         let dailyincome = dailyworked * wage;
+         let Monthlyincome = dailyincome * 30;
+         let yearlyincome = Monthlyincome * 12;
+
+         document.getElementById("display").innerHTML = 
+          "Daily Income : " + dailyincome + "<br>" +
+                "Monthly Income : " + Monthlyincome + "<br>" +
+                "Yearly Income : " + yearlyincome;
+    }
+
+
+</script>
+</html>
