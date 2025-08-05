@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Validation</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #1d4ed8; /* Tailwind blue-700 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  background-color: white;
+  padding: 30px 25px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group span {
+  color: red;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.input-group input.valid input.invalid{
+  border-color: green;
+}
+
+
+
+
+
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1e40af;
+}
+
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="form-container">
+      <h2>Create Your Account</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <label>First Name <span>*</span></label>
+          <input type="text" name="firstname"  class="valid" id="First"/>
+        </div>
+        <div class="input-group">
+          <label>Last Name <span>*</span></label>
+          <input type="text" name="lastname"  class="valid" id="second"/>
+        </div>
+        <div class="input-group">
+          <label>Email Id <span>*</span></label>
+          <input type="text" name="email"  class="invalid" id="Third"/>
+         
+        </div>
+        <div class="input-group">
+          <label>Phone Number <span>*</span></label>
+          <input type="tel" placeholder="Enter Phone Number" id="fourth"/>
+        </div>
+        <div class="input-group">
+          <label>Password <span>*</span></label>
+          <input type="password" placeholder="Enter Password" id="fifth" />
+        </div>
+        <div class="input-group">
+          <label>Confirm Password <span>*</span></label>
+          <input type="password" placeholder="Confirm Password" id="Sixth" />
+        </div>
+        <button class="btn" onclick="DataReceived()">Signup</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+function DataReceived(event) {
+    event.preventDefault();
+
+    let data = document.getElementById("First").value;
+    if (data.length <= 5) {
+        alert("Name is invalid!");
+    }
+
+    let data1 = document.getElementById("Second").value;
+    if (data1.length <= 5) {
+        alert("Second Name is invalid!");
+    }
+
+    let data3 = document.getElementById("Third").value;
+    if (!data3.includes("@")) {
+        alert("Invalid email! '@' is missing.");
+    }
+
+    let data4 = document.getElementById("fourth").value;
+    if (data4.length !== 10) {
+        alert("Invalid Phone Number");
+    }
+
+    let data5 = document.getElementById("fifth").value;
+    if (data5.length <= 8) {
+        alert("Invalid Password");
+    }
+
+    let data6 = document.getElementById("Sixth").value;
+    if (data6.length <= 8) {
+        alert("Invalid Confirm Password");
+    }
+}
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bulboff{
+            position: relative;
+            left: -102px;
+        }
+       
+    </style>
+</head>
+<body id="bd">
+    <img src="https://www.w3schools.com/js/pic_bulbon.gif" alt="" id="bulbon">
+    <img src="https://www.w3schools.com/js/pic_bulboff.gif" alt="" id="bulboff">
+     <button onclick="bulb('on')">Turn ON</button>
+  <button onclick="bulb('off')">Turn OFF</button>
+    
+</body>
+<script>
+    function bulb(lighton) {
+        if (lighton==='on'){
+            document.getElementById('bulbon').style.opacity = "100%" ;
+            document.getElementById('bulboff').style.opacity = "0%" ;
+            document.getElementById('bd').style.backgroundColor = "white"
+
+        }
+        else if (lighton==='off') {
+            document.getElementById('bulbon').style.opacity = "0%" ;
+            document.getElementById('bulboff').style.opacity = "100%" ;
+            document.getElementById('bd').style.backgroundColor = "black"
+
+        }
+        
+    }
+</script>
+</html>

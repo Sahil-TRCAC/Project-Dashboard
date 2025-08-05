@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    
+<style>
+    *{
+        text-align: center;
+    }
+    body{
+        background-color: #000000e0;
+    }
+    .container {
+        height: 342px;
+        width: 200px;
+        border: none;
+        margin: 100px auto;
+        border-radius: 10px;
+        box-shadow: .1px .1px 4px rgb(199, 201, 255);
+    }
+
+    .area {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .work {
+        width: 175px;
+        height: 92px;
+        border: none;
+        background-color: #2e2e2e;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: right;
+        font-size: 32px;
+        outline: none;
+        padding: 0px 12px;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+    }
+
+    .c1 {
+        display: flex;
+        width: 200px;
+
+        button {
+            height: 50px;
+            width: 50px;
+            border: 1px solid grey;
+            background-color: #a6b4bd;
+            text-align: center;
+            font-weight: 900;
+            color: rgb(74, 113, 255);
+        }
+    }
+
+    .c2 {
+        display: flex;
+        width: 200px;
+        height: 50px;
+
+        button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid grey;
+        }
+    }
+
+    #equals {
+        height: 200px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(255, 102, 128);
+    }
+
+    .c3 {
+        display: flex;
+        width: 200px;
+
+        button{
+            width: 50px;
+            height: 50px;
+            border: 1px solid grey;
+        }
+    }
+    .c4{
+        display: flex;
+        width: 200px;
+        button{
+            width: 50px;
+            height: 50px;
+            border: 1px solid grey;
+        }
+    }
+    .c5{
+        display: flex;
+        width: 200px;
+        button{
+            width: 50px;
+            height: 50px;
+            border: 1px solid grey;
+        }
+    }
+    #zero{
+        border-bottom-left-radius: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="area">
+            <input type="text" class="work" id="display">
+        </div>
+
+        <div class="c1">
+            <div class="addb">
+                <button id="addition" onclick="append('+')">+</button>
+            </div>
+            <div class="subb">
+                <button id="subtraction" onclick="append('-')">-</button>
+            </div>
+            <div class="mulb">
+                <button id="multiplication" onclick="append('*')">x</button>
+            </div>
+            <div class="perb">
+                <button id="percentage" onclick="append('%')">%</button>
+            </div>
+        </div>
+
+        <div class="c2">
+            <div class="7b">
+                <button id="seven" onclick="append('7')">7</button>
+            </div>
+            <div class="8b">
+                <button id="eight" onclick="append('8')">8</button>
+            </div>
+            <div class="9b">
+                <button id="nine" onclick="append('9')">9</button>
+            </div>
+            <div class="eqb">
+                <button id="equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <div class="c3">
+            <div class="4b">
+                <button onclick="append('4')">4</button>
+            </div>
+            <div class="5b">
+                <button onclick="append('5')">5</button>
+            </div>
+            <div class="6b">
+                <button onclick="append('6')">6</button>
+            </div>
+        </div>
+
+        <div class="c4">
+            <div class="1b">
+                <button onclick="append('1')">1</button>
+            </div>
+            <div class="2b">
+                <button onclick="append('2')">2</button>
+            </div>
+            <div class="3b">
+                <button onclick="append('3')">3</button>
+            </div>
+        </div>
+
+        <div class="c5">
+            <div class="0b">
+                <button id="zero" onclick="append('0')">0</button>
+            </div>
+            <div class="decb">
+                <button onclick="append('.')">.</button>
+            </div>
+            <div class="acb">
+                <button onclick="cleardisp()">AC</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let num1 = "";
+    let num2 = "";
+    let op = "";
+    let displaydata = "";
+
+    function append(val) {
+        if (val === "+" || val === "-" || val === "*" || val === "/" || val === "%") {
+            op = val;
+            num2 = num1;
+            num1 = "";
+            displaydata += val;
+        } else {
+            num1 += val;
+            displaydata += val;
+        }
+
+        document.getElementById("display").value = displaydata;
+    }
+
+    function cleardisp() {
+        num1 = "";
+        num2 = "";
+        op = "";
+        displaydata = "";
+        document.getElementById("display").value = "";
+    }
+
+    function calculate() {
+        let result = 0;
+        let n1 = parseFloat(num2);
+        let n2 = parseFloat(num1);
+
+        switch (op) {
+            case "+":
+                result = n1 + n2;
+                break;
+            case "-":
+                result = n1 - n2;
+                break;
+            case "*":
+                result = n1 * n2;
+                break;
+            case "/":
+                result = n1 / n2;
+                break;
+            case "%":
+                result = n1 % n2;
+                break;
+        }
+
+        document.getElementById("display").value = result;
+        num1 = result.toString();
+        displaydata = result.toString();
+    }
+</script>
+
+</html>
